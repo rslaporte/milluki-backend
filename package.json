@@ -18,6 +18,9 @@
   "homepage": "https://github.com/RafaelLaporte/milluki-backend#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "joi": "^17.3.0",
+    "joi-objectid": "^3.0.1",
+    "lodash": "^4.17.20",
     "mongoose": "^5.11.13"
   },
   "devDependencies": {
