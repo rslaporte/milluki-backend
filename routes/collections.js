@@ -2,7 +2,8 @@ const express = require('express')
 const router = express.Router()
 const _ = require('lodash')
 
-const {Collection, validate} = require('../models/collection')
+const { Book } = require('../models/book')
+const {Collection, validate, validateBook} = require('../models/collection')
 
 router.get('/', async (req, res) => {
     const collections = await Collection.find()
@@ -31,6 +32,23 @@ router.post('/', async (req, res) => {
     res.status(201).send(collection)
 })
 
+router.post('/:id', async (req, res) => {
+    const {error} = validateBook(req.body)
+    if (error) return res.status(400).send('Error:', error.details[0].message)
+
+    let collection = await Collection.findById(req.params.id)
+    if(!collection) return res.status(404).send('Collection with the given id was not found.')
+
+    const book = await Book.findById(req.body.bookId)
+    if(!book) return res.status(404).send('The book with the given id was not found.')
+    
+    collection.book.push(book)
+    await collection.save()
+
+    res.status(201).send(collection)
+})
+
+//Should books added into the collection here instead of by post route /:id ?
 router.put('/:id', async (req, res) => {
     const {error} = validate(req.body)
     if (error) return res.status(400).send('Error:', error.details[0].message)
