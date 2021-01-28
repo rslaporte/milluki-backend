@@ -1,8 +1,8 @@
-const mongoose = require('mongoose')
-const Joi = require('joi')
-const jwt = require('jsonwebtoken')
+const mongoose = require('mongoose');
+const Joi = require('joi');
+const jwt = require('jsonwebtoken');
 
-//const {collectionSchema} = require('./collection')
+const {collectionSchema} = require('./collection')
 
 const userSchema = mongoose.Schema({
     name: {
@@ -24,12 +24,15 @@ const userSchema = mongoose.Schema({
         required: true,
         minglength: 6,
         maxlength: 255
+    },
 
+    collections: {
+        type: Array
     }
 })
 
 userSchema.methods.generateToken = function () {
-    return jwt.sign({_id: this._id}, 'provisorio')
+    return jwt.sign({_id: this._id, email: this.email}, 'provisorio')
 }
 
 const User = mongoose.model('User', userSchema)

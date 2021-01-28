@@ -56,6 +56,15 @@ function validateBook(book) {
     return schema.validate(book)
 }
 
+function validateBookId(book) {
+    const schema = Joi.object({
+        bookId: Joi.objectId().required()
+    })
+
+    return schema.validate(book)
+}
+
 exports.Book = Book
 exports.bookSchema = bookSchema
 exports.validate = validateBook
+exports.validateBookId = validateBookId
