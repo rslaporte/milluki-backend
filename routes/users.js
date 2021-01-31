@@ -9,7 +9,7 @@ const {User, validate} = require('../models/user')
 
 router.get('/', auth, async (req, res) => {
     const user = await User.findById(req.user._id).select('-password')
-    res.status(200).send(user)
+    return res.status(200).send(user)
 })
 
 router.post('/', async (req, res) => {
@@ -26,8 +26,8 @@ router.post('/', async (req, res) => {
 
     await user.save()
 
-    const token = user.generateToken() 
-    res.status(201).header('x-auth-token', token).send(_.pick(user, ['_id', 'name', 'email']))
+    const token = user.generateToken()
+    return res.status(201).header('x-auth-token', token).send(_.pick(user, ['_id', 'name', 'email']))
 })
 
 module.exports = router

@@ -1,5 +1,5 @@
 const Joi = require('joi')
 
-module.exports = function () {
+module.exports = () => {
     Joi.objectId = require('joi-objectid')(Joi);
 }
