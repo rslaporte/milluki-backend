@@ -1,14 +1,14 @@
 const mongoose = require('mongoose')
 const Joi = require('joi')
 
-const {bookSchema} = require('./book')
+const { bookSchema } = require('./book')
 
 const collectionSchema = mongoose.Schema({
     name: {
         type: String,
         minlength: 2,
         maxlength: 255,
-        required: true
+        required: true,
     },
 
     owner: {
@@ -19,12 +19,12 @@ const collectionSchema = mongoose.Schema({
 
     isPublic: {
         type: Boolean,
-        default: true
+        default: true,
     },
 
     book: {
-        type: [bookSchema]
-    }
+        type: [bookSchema],
+    },
 })
 
 const Collection = mongoose.model('Collection', collectionSchema)
@@ -32,7 +32,7 @@ const Collection = mongoose.model('Collection', collectionSchema)
 function validateCollection(collection) {
     const schema = Joi.object({
         name: Joi.string().min(2).max(255).required(),
-        isPublic: Joi.boolean()
+        isPublic: Joi.boolean(),
     })
 
     return schema.validate(collection)

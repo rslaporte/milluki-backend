@@ -4,7 +4,7 @@ const books = require('../routes/books')
 const users = require('../routes/users')
 const auth = require('../routes/auth')
 
-module.exports = (app) => {
+module.exports = app => {
     app.use(express.json())
     app.use('/api/collections', collections)
     app.use('/api/books', books)
