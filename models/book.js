@@ -6,7 +6,7 @@ const bookSchema = mongoose.Schema({
         type: String,
         minlength: 2,
         maxlength: 255,
-        required: true
+        required: true,
     },
 
     author: {
@@ -22,21 +22,21 @@ const bookSchema = mongoose.Schema({
     },
 
     year: {
-        type: Number
+        type: Number,
     },
 
     genre: {
         type: String,
         minlength: 2,
-        maxlength: 255
+        maxlength: 255,
     },
 
     volume: {
-        type: Number
+        type: Number,
     },
 
     pageNumber: {
-        type: Number
+        type: Number,
     },
 })
 
@@ -50,7 +50,15 @@ function validateBook(book) {
         year: Joi.number(),
         genre: Joi.string().min(2).max(50),
         volume: Joi.number(),
-        pageNumber: Joi.number()
+        pageNumber: Joi.number(),
+    })
+
+    return schema.validate(book)
+}
+
+function validateBookId(book) {
+    const schema = Joi.object({
+        bookId: Joi.objectId().required(),
     })
 
     return schema.validate(book)
@@ -59,3 +67,4 @@ function validateBook(book) {
 exports.Book = Book
 exports.bookSchema = bookSchema
 exports.validate = validateBook
+exports.validateBookId = validateBookId

@@ -1,5 +1,6 @@
 const Joi = require('joi')
 
-module.exports = function () {
-    Joi.objectId = require('joi-objectid')(Joi);
+module.exports = () => {
+    // eslint-disable-next-line global-require
+    Joi.objectId = require('joi-objectid')(Joi)
 }

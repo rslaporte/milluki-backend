@@ -1,0 +1,4 @@
+{
+    "jwtPrivateKey": "provisorio",
+    "db": "mongodb://localhost/milluki_tests"
+}

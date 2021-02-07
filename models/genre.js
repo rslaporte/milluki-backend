@@ -7,8 +7,8 @@ const genreSchema = mongoose.Schema({
         minglength: 4,
         maxlength: 255,
         unique: true,
-        required: true
-    }
+        required: true,
+    },
 })
 
 const Genre = mongoose.model('Genre', genreSchema)
