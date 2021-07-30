@@ -10,6 +10,6 @@ Para subir o servidor, com o banco de dados ativo, basta executar:
 
 Com isso, é possível fazer requisições para a API do milluki.
 
-Este projeto também possui uma cobertura de testes. Para executá-los basta utilizar o comando:
+Este projeto também possui uma cobertura de testes. Para executá-los utilize o comando:
 
 - npm test
