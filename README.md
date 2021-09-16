@@ -1,4 +1,4 @@
-**MILLUKI BACKEND - CONTROLE DE COLEÇÕES**
+## MILLUKI BACKEND - CONTROLE DE COLEÇÕES
 
 Para se executar o projeto deve-se instalar o Node.js (https://nodejs.org/pt-br/download/) e o banco de dados não relacional MongoDB (https://www.mongodb.com/try/download/community)
 
