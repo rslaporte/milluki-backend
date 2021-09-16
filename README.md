@@ -1,10 +1,10 @@
-Para se executar o projeto deve-se possuir o Node.js instalado e o banco de dados não relacional MongoDB
+Para se executar o projeto deve-se instalar o Node.js (https://nodejs.org/pt-br/download/) e o banco de dados não relacional MongoDB (https://www.mongodb.com/try/download/community)
 
-Feito isso, para instalar as dependências do projeto, execute o seguinte comando no terminal, no diretório raíz do projeto: 
+Feito isso, para instalar as dependências do projeto, no diretório raíz do projeto, execute o seguinte comando no terminal: 
 
 - npm install
 
-Para subir o servidor, com o banco de dados ativo, basta executar:
+Para iniciar o servidor, basta executar:
 
 - node index.js
 
